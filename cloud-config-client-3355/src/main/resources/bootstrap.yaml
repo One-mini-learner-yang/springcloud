@@ -1,0 +1,27 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: cloud-config-client
+  cloud:
+    config:
+      label: master
+      name: config
+      profile: dev
+      uri: http://localhost:3344
+      #综合上面3个配置，会组合访问http://localhost:3344/master/config-dev.yml
+  rabbitmq:
+    host: 192.168.234.128
+    port: 5672
+    username: guest
+    password: guest
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#eureka配置在gitHub上全局配置中
